@@ -37,6 +37,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         	var allergy_count = 0;
         	var cold_count = 0;
 		var totalQuestions = 5;
+		var docMod = document.lastModified;
+       		alert("This file last modified  " + docMod);
+       		console.log("This file last modified  " + docMod);
 
 		//adds to allergy count
         	function allergyAdd(){
@@ -79,6 +82,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   .page:target {
     left: 0vw;
     z-index: 1;
+}
+   img, object{
+     max-height:90%;
+     max-width:90%;
 }
 </style>
 
