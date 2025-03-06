@@ -34,29 +34,29 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
 	<script>
 		//sets up the variables for bothj allergy counts and cold counts along with their functions
-        	var allergy_count = 0;
-        	var cold_count = 0;
+        	var flu_count = 0;
+        	var covid_count = 0;
 		var totalQuestions = 5;
 		var docMod = document.lastModified;
        		alert("This file last modified  " + docMod);
        		console.log("This file last modified  " + docMod);
 
 		//adds to allergy count
-        	function allergyAdd(){
-            		allergy_count = allergy_count + 1;
+        	function covidAdd(){
+            		covid_count = covid_count + 1;
         	}
 		//adds to cold count
-        	function coldAdd(){
-            		cold_count = cold_count + 1;
+        	function fluAdd(){
+            		flu_count = flu_count + 1;
         	}
 		function showResult(){
 			//calculates the percentage of allergy and cold through standard division
-			var allergyPercent = allergy_count*100 / totalQuestions;
-			var coldPercent = cold_count*100 / totalQuestions;
+			var covidPercent = covid_count*100 / totalQuestions;
+			var fluPercent = flu_count*100 / totalQuestions;
 
 			//changes the text on the results screen to give the proper percentages.
 			var resultText = document.getElementById("result");
-			resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "%<br> Probability it is a cold =" + coldPercent + "%"; 
+			resultText.innerHTML = "Probability it is COVID =" + covidPercent + "%<br> Probability it is a flu =" + fluPercent + "%"; 
 		}
   	</script>
    </head> 
@@ -91,12 +91,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Flu or COVID?</h1>
 </div>
 	<!-- First page set up. Also provides a disclaimer warning.
 	-->
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Are you feeling like you might have COVID but wonder if it is just the Flu? Answer a few short questions to find out!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -113,9 +113,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    
-		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No </a>
+        <p>Can you taste things?</p>    
+		<a href="#two" onclick="fluAdd();" class="w3-btn w3-black"> Yes </a>
+		<a href="#two" onclick="covidAdd();" class="w3-btn w3-black"> No </a>
     	</div>
 </div>
 
@@ -125,9 +125,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Do you have a fever?</p>    
-		<a href="#three" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+        <p>Do you feel tired for extended periods of time?</p>    
+		<a href="#three" onclick="covidAdd();" class="w3-btn w3-black"> Yes </a>
+		<a href="#three" onclick="fluAdd();" class="w3-btn w3-black"> No </a>
     	</div>
 </div>
 
@@ -137,9 +137,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a sore throat?</p>    
-		<a href="#four" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+	<p>Do you have a shortness of breath?</p>    
+		<a href="#four" onclick="covidAdd();" class="w3-btn w3-black"> Yes </a>
+		<a href="#four" onclick="fluAdd();" class="w3-btn w3-black"> No </a>
 	</div>
 </div>
 
@@ -149,9 +149,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Are your symptoms seasonal or chronic?</p>    
-		<a href="#five" onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#five" onclick="coldAdd();" class="w3-btn w3-black"> No </a>
+	<p>Does your nose stuff or run often?</p>    
+		<a href="#five" onclick="fluAdd();" class="w3-btn w3-black"> Yes </a>
+		<a href="#five" onclick="covidAdd();" class="w3-btn w3-black"> No </a>
 	</div>
 </div>
 
@@ -161,9 +161,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Are your nasal fluids yellow?</p>    
-		<a href="#six" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#six" onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+	<p>Did your symptoms occour gradually? (over the course of a few days)</p>    
+		<a href="#six" onclick="covidAdd();" class="w3-btn w3-black"> Yes </a>
+		<a href="#six" onclick="fluAdd();" class="w3-btn w3-black"> No </a>
 	</div>
 </div>
 
