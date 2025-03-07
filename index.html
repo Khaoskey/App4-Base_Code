@@ -56,7 +56,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 			//changes the text on the results screen to give the proper percentages.
 			var resultText = document.getElementById("result");
+			var resultImage = document.getElementById("image");
 			resultText.innerHTML = "Probability it is COVID =" + covidPercent + "%<br> Probability it is a flu =" + fluPercent + "%"; 
+			if(covidPercent > fluPercent){
+				resultImage.src = "https://www.un.org/sites/un2.un.org/files/field/image/1583952355.1997.jpg";
+			}
+			else{
+				resultImage.src = "https://micro.magnet.fsu.edu/cells/viruses/images/influenzafigure1.jpg";
 		}
   	</script>
    </head> 
@@ -178,7 +184,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p id="result">Results here:</p>    
 		<a onclick="showResult();" class="w3-btn w3-black"> Click Here! </a>
 	</div>
-	<img src="https://www.un.org/sites/un2.un.org/files/field/image/1583952355.1997.jpg" alt="COVID">
+	<img id="image" src="" alt="COVID">
 </div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
