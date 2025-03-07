@@ -33,39 +33,49 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
 	<script>
-		//sets up the variables for bothj allergy counts and cold counts along with their functions
-        	var flu_count = 0;
-        	var covid_count = 0;
-		var totalQuestions = 5;
-		var docMod = document.lastModified;
-       		alert("This file last modified  " + docMod);
-       		console.log("This file last modified  " + docMod);
+		    // Sets up variables for COVID and flu counts
+		    var flu_count = 0;
+		    var covid_count = 0;
+		    var totalQuestions = 5;
+		
+		    // Displays the last modified date in an alert and console
+		    window.onload = function() {
+		        var docMod = document.lastModified;
+		        alert("This file was last modified on " + docMod);
+		        console.log("This file was last modified on " + docMod);
+		    };
+		
+		    // Increments COVID count
+		    function covidAdd() {
+		        covid_count += 1;
+		    }
+		
+		    // Increments flu count
+		    function fluAdd() {
+		        flu_count += 1;
+		    }
+		
+		    // Displays results
+		    function showResult() {
+		        // Calculates percentage and rounds to two decimal places
+		        var covidPercent = ((covid_count / totalQuestions) * 100).toFixed(2);
+		        var fluPercent = ((flu_count / totalQuestions) * 100).toFixed(2);
+		
+		        // Updates result text
+		        var resultText = document.getElementById("result");
+		        var resultImage = document.getElementById("image");
+		        resultText.innerHTML = 
+		            "Probability it is COVID: " + covidPercent + "%<br>" +
+		            "Probability it is the flu: " + fluPercent + "%";
 
-		//adds to allergy count
-        	function covidAdd(){
-            		covid_count = covid_count + 1;
-        	}
-		//adds to cold count
-        	function fluAdd(){
-            		flu_count = flu_count + 1;
-        	}
-		function showResult(){
-			//calculates the percentage of allergy and cold through standard division
-			var covidPercent = covid_count*100 / totalQuestions;
-			var fluPercent = flu_count*100 / totalQuestions;
-
-			//changes the text on the results screen to give the proper percentages.
-			var resultText = document.getElementById("result");
-			var resultImage = document.getElementById("image");
-			resultText.innerHTML = "Probability it is COVID =" + covidPercent + "%<br> Probability it is a flu =" + fluPercent + "%"; 
-			if(covidPercent > fluPercent){
-				resultImage.src = "https://www.un.org/sites/un2.un.org/files/field/image/1583952355.1997.jpg";
-			}
-			else{
-				resultImage.src = "https://micro.magnet.fsu.edu/cells/viruses/images/influenzafigure1.jpg";
-			}
-		}
-  	</script>
+        		// Updates image based on higher probability
+        		if (covidPercent > fluPercent) {
+            			resultImage.src = "https://www.un.org/sites/un2.un.org/files/field/image/1583952355.1997.jpg";
+        		} else {
+            			resultImage.src = "https://micro.magnet.fsu.edu/cells/viruses/images/influenzafigure1.jpg";
+        		}
+    		}
+		</script>
    </head> 
 
 
@@ -175,19 +185,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>
 
 <div class="page" id="six">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Result Page</h1>
-	</div>
+    <div class="w3-container w3-flat-carrot">
+        <h1>Result Page</h1>
+    </div>
 
-	<!-- sets up last page and the button in order to display results on the ealier text
-	-->
-	<div id="content" class="w3-container">
-		<p id="result">Results here:</p>    
-		<a onclick="showResult();" class="w3-btn w3-black"> Click Here! </a>
-	</div>
-	<img id="image" src="" alt="COVID">
+    <!-- Last page content with button to show results -->
+    <div id="content" class="w3-container w3-center">
+        <p id="result">Results here:</p>    
+        <button onclick="showResult();" class="w3-btn w3-black">Click Here!</button>
+    </div>
+
+    <!-- Initially hidden image -->
+    <img id="image" src="" alt="COVID result image" style="display: none;" class="w3-center">
 </div>
-
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
